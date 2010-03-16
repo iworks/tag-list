@@ -4,7 +4,7 @@ Plugin Name: Tag list
 Plugin URI: http://iworks.pl/tag-list/
 Description: Display all used tags with or without TOC.
 Author: Marcin Pietrzak
-Version: 1.0
+Version: 1.1
 Author URI: http://iworks.pl
 */
 
