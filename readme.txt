@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=marci
 Tags: tag, tags
 Requires at least: ?
 Tested up to: 2.9.2
-Stable tag: 0.1
+Stable tag: 1.1
 
 Tag list plugin
 
