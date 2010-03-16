@@ -24,3 +24,9 @@ Add a full tag list to your site.
 
 == Change Log ==
 
+= 1.1 =
+* Add a polish language.
+
+= 1.0 =
+* First realase.
+
