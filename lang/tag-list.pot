@@ -1,0 +1,116 @@
+# Translation of the WordPress plugin Tag list 1.0 by Marcin Pietrzak.
+# Copyright (C) 2010 Marcin Pietrzak
+# This file is distributed under the same license as the Tag list package.
+# Marcin Pietrzak <marcin@iworks.pl>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Tag list 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tag-list\n"
+"POT-Creation-Date: 2010-03-16 21:19+0100\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
+"Language-Team: Marcin Pietrzak <marcin@iworks.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tag-list-admin.php:23 tag-list-admin.php:24 tag-list-admin.php:90
+msgid "Tag list options"
+msgstr ""
+
+#: tag-list-admin.php:64
+msgid "Warning"
+msgstr ""
+
+#: tag-list-admin.php:66
+msgid ""
+"wp_head(); not found in your header.php file, this might mean this plugin "
+"will not work!"
+msgstr ""
+
+#: tag-list-admin.php:80
+msgid "Options saved."
+msgstr ""
+
+#: tag-list-admin.php:99
+msgid "Use default CSS?"
+msgstr ""
+
+#: tag-list-admin.php:102 tag-list-admin.php:122 tag-list-admin.php:131
+#: tag-list-admin.php:140
+msgid "yes"
+msgstr ""
+
+#: tag-list-admin.php:103 tag-list-admin.php:123
+msgid "no"
+msgstr ""
+
+#: tag-list-admin.php:108
+msgid "Where should the short list be placed?"
+msgstr ""
+
+#: tag-list-admin.php:111
+msgid "on top and on bottom (default)"
+msgstr ""
+
+#: tag-list-admin.php:112
+msgid "only on top"
+msgstr ""
+
+#: tag-list-admin.php:113
+msgid "only on bottom"
+msgstr ""
+
+#: tag-list-admin.php:114
+msgid "hide"
+msgstr ""
+
+#: tag-list-admin.php:119
+msgid "Use extra div width ID?"
+msgstr ""
+
+#: tag-list-admin.php:128
+msgid "Show unused tag to?"
+msgstr ""
+
+#: tag-list-admin.php:132 tag-list-admin.php:141
+msgid "no (default)"
+msgstr ""
+
+#: tag-list-admin.php:137
+msgid "Show number of use?"
+msgstr ""
+
+#: tag-list-admin.php:148
+msgid "Save Changes"
+msgstr ""
+
+#: tag-list-admin.php:150
+msgid "Donation"
+msgstr ""
+
+#: tag-list.php:182
+msgid "Settings"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Tag list"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://iworks.pl/tag-list/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Display all used tags with or without TOC."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Marcin Pietrzak"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://iworks.pl"
+msgstr ""

@@ -1,0 +1,113 @@
+# Translation of the WordPress plugin Tag list 1.0 by Marcin Pietrzak.
+# Copyright (C) 2010 Marcin Pietrzak
+# This file is distributed under the same license as the Tag list package.
+# Marcin Pietrzak <marcin@iworks.pl>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Tag list 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/tag-list\n"
+"POT-Creation-Date: 2010-03-16 20:46+0100\n"
+"PO-Revision-Date: 2010-03-16 20:55+0100\n"
+"Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
+"Language-Team: Marcin Pietrzak <marcin@iworks.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tag-list-admin.php:23 tag-list-admin.php:24 tag-list-admin.php:90
+msgid "Tag list options"
+msgstr "Opcje listy tagów"
+
+#: tag-list-admin.php:64
+msgid "Warning"
+msgstr "Ostrzeżeie"
+
+#: tag-list-admin.php:66
+msgid "wp_head(); not found in your header.php file, this might mean this plugin will not work!"
+msgstr "Brak wywołania funkcji wp_head() w pliku szablonu: header.php może ograniczyć pełną funkcjonalność wtyczki."
+
+#: tag-list-admin.php:80
+msgid "Options saved."
+msgstr "Opcje zostały zapisane."
+
+#: tag-list-admin.php:99
+msgid "Use default CSS?"
+msgstr "Czy użyć domyślnego arkusza CSS?"
+
+#: tag-list-admin.php:102 tag-list-admin.php:122 tag-list-admin.php:131
+#: tag-list-admin.php:140
+msgid "yes"
+msgstr "tak"
+
+#: tag-list-admin.php:103 tag-list-admin.php:123
+msgid "no"
+msgstr "nie"
+
+#: tag-list-admin.php:108
+msgid "Where should the short list be placed?"
+msgstr "Gdzie wyświetlać spis treści?"
+
+#: tag-list-admin.php:111
+msgid "on top and on bottom (default)"
+msgstr "na górze i na dole (domyślnie)"
+
+#: tag-list-admin.php:112
+msgid "only on top"
+msgstr "tylko na górze"
+
+#: tag-list-admin.php:113
+msgid "only on bottom"
+msgstr "tylko na dole"
+
+#: tag-list-admin.php:114
+msgid "hide"
+msgstr "ukryć"
+
+#: tag-list-admin.php:119
+msgid "Use extra div width ID?"
+msgstr "Czy użyć dodatkowego div'a ze specjalnym ID?"
+
+#: tag-list-admin.php:128
+msgid "Show unused tag to?"
+msgstr "Czy pokazać nieużywane tagi?"
+
+#: tag-list-admin.php:132 tag-list-admin.php:141
+msgid "no (default)"
+msgstr "nie (domyślnie)"
+
+#: tag-list-admin.php:137
+msgid "Show number of use?"
+msgstr "Czy pokazać liczbę użyć tagu?"
+
+#: tag-list-admin.php:148
+msgid "Save Changes"
+msgstr "Zapisz zmiany"
+
+#: tag-list-admin.php:150
+msgid "Donation"
+msgstr "Postaw mi piwo"
+
+#: tag-list.php:171
+msgid "Settings"
+msgstr "Ustawienia"
+
+#. Plugin Name of the plugin/theme
+msgid "Tag list"
+msgstr "Lista tagów"
+
+#. Plugin URI of the plugin/theme
+msgid "http://iworks.pl/tag-list/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Display all used tags with or without TOC."
+msgstr "Umożliwia wylistowanie wszystkich tagów, zarówno z jaki bez spisu treści."
+
+#. Author of the plugin/theme
+msgid "Marcin Pietrzak"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://iworks.pl"
+msgstr ""
