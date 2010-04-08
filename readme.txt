@@ -4,13 +4,20 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=marci
 Tags: tag, tags
 Requires at least: 2.8.0
 Tested up to: 2.9.2
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 Tag list plugin
 
 == Description ==
 
 Add a full tag list to your site.
+
+= Translators =
+
+* Belorussian (be_BY) - [Marcis G.](http://pc.de/)
+* Polish (pl_PL) - [Marcin Pietrzak](http://iworks.pl/)
+
+If you have created your own language pack, or have an update of an existing one, you can send [gettext PO and MO files](http://codex.wordpress.org/Translating_WordPress) to me so that I can bundle it into Tag list. You can [download the latest POT file from here](http://plugins.svn.wordpress.org/tag-list/trunk/lang/tag-list.pot).
 
 == Installation ==
 
@@ -24,8 +31,11 @@ Add a full tag list to your site.
 
 == Change Log ==
 
+= 1.1.1 =
+* Add a Belorussian translation made by [Marcis G.](http://pc.de)
+
 = 1.1 =
-* Add a polish language.
+* Add a polish translation.
 
 = 1.0 =
 * First realase.
