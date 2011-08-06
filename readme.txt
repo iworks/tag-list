@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: gurthg
+Contributors: iworks
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=marcin%40iworks%2epl&item_name=tag-list%20plugin&no_shipping=0&no_note=1&tax=0&currency_code=PLN&lc=PL&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: tag, tags
 Requires at least: 2.8.0
