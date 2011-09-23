@@ -5,8 +5,7 @@ class tag_list_admin
     # init()
     #
 
-    function init()
-    {
+    function init() {
         add_action('admin_menu', array('tag_list_admin', 'add_option_page'));
     } # init()
 
@@ -15,14 +14,13 @@ class tag_list_admin
     # add_option_page()
     #
 
-    function add_option_page()
-    {
+    function add_option_page() {
         add_submenu_page
         (
             'edit.php',
             __('Tag list options', 'tag_list'),
             __('Tag list options', 'tag_list'),
-            9,
+            'edit_posts',
             basename(__FILE__),
             array( 'tag_list_admin', 'display_options' )
         );
@@ -33,15 +31,12 @@ class tag_list_admin
     # update_options()
     #
 
-    function update_options()
-    {
+    function update_options() {
         check_admin_referer('tag_list_action_update');
-        if ( function_exists('update_site_option') && ( function_exists('is_site_admin') && is_site_admin() ) )
-        {
+        if ( function_exists('update_site_option') && ( function_exists('is_site_admin') && is_site_admin() ) ) {
             update_site_option( 'tag_list_params', $_POST['tag_list'] );
         }
-        else
-        {
+        else {
             update_option( 'tag_list_params', $_POST['tag_list']);
         }
     } # update_options()
@@ -50,16 +45,14 @@ class tag_list_admin
     # display_options()
     #
 
-    function display_options()
-    {
+    function display_options() {
         # check for wp_head
         $templates = array();
         $templates[] = "header.php";
         $file = file_get_contents( locate_template( $templates ) );
         // Check for wp_head
-        preg_match('/.*( wp_head\(\);).*/',$file,$matches );
-        if ( !$matches[1] )
-        {
+        preg_match('/.*([\t ]wp_head\(\);).*/',$file,$matches );
+        if ( sizeof( $matches ) < 2 or !$matches[1] ) {
             echo '<div id="message" class="error"><p><strong>';
             _e('Warning', 'tag_list' );
             echo '</strong> ';
@@ -70,8 +63,7 @@ class tag_list_admin
 
         if ( isset($_POST['action'])
             && ( $_POST['action'] == 'update' )
-        )
-        {
+        ) {
             tag_list_admin::update_options();
 
             echo '<div class="updated">' . "\n"
