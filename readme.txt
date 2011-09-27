@@ -6,7 +6,7 @@ Requires at least: 2.8.0
 Tested up to: 2.9.2
 Stable tag: 1.1.1
 
-Tag list plugin
+Tag list plugin allow to create list of all tags, filtred by letter or prefix.
 
 == Description ==
 
@@ -26,6 +26,11 @@ If you have created your own language pack, or have an update of an existing one
 1. Create a page or blogpost anf use [tag-list] shortcode to display list of all used tags.
 
 == Frequently Asked Questions ==
+
+= How to place tag list? =
+
+= Shortcode parameters =
+
 
 == Screenshots ==
 
