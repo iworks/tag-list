@@ -29,12 +29,20 @@ If you have created your own language pack, or have an update of an existing one
 
 = How to place tag list? =
 
+* shortcode [tag-list] - put preconfigured tag list
+
 = Shortcode parameters =
 
+* *letter* - show only tags start width selected letter. [tag-list letter="a"] show only tags begins with letter "a".
+* *toc* - show or hide TOC. Available variables: 'none', 'both', 'top', 'bottom' 
 
 == Screenshots ==
 
 == Change Log ==
+
+= 2.0 =
+
+* IMPROVMENT: massive code refactoring: change custom query to get_tags function.
 
 = 1.1.1 =
 * Add a Belorussian translation made by [Marcis G.](http://pc.de)

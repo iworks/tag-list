@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: Tag list
+Plugin Name: Tag List
 Plugin URI: http://iworks.pl/tag-list/
 Description: Display all used tags with or without TOC.
 Author: Marcin Pietrzak
-Version: 1.1.1
+Version: trunk
 Author URI: http://iworks.pl
 */
 
 /*
-Copyright 2010  Marcin Pietrzak  (email : marcin.pietrzak@iworks.pl )
+Copyright 2010-2011  Marcin Pietrzak  (email : marcin.pietrzak@iworks.pl )
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -33,13 +33,13 @@ if ( strpos($_SERVER['REQUEST_URI'], 'wp-admin') !== false )
     include_once dirname(__FILE__) . '/tag-list-admin.php';
 }
 
-
 class tag_list
 {
     #
     # init()
     #
-    function init() {
+    function init()
+    {
         add_shortcode( 'tag-list',  array( 'tag_list', 'get_tag_list' ) );
         add_action( 'wp_head', array( 'tag_list', 'get_css') );
         add_filter( 'plugin_row_meta', array( 'tag_list', 'register_plugin_links' ), 10, 2 );
@@ -57,7 +57,8 @@ class tag_list
     #
     # get_options()
     #
-    function get_options() {
+    function get_options()
+    {
         if ( function_exists('get_site_option') ) {
             $options = get_site_option( 'tag_list_params' );
         }
@@ -85,32 +86,47 @@ class tag_list
     #
     # get_iworks_tag_list()
     #
-    function get_tag_list() {
+    function get_tag_list( $atts )
+    {
         global $wpdb;
         #
         $options = tag_list::get_options();
-        #
-        $sql  = 'SELECT T.term_id, T.name, X.count ';
-        $sql .= 'FROM ' . $wpdb->terms . ' T ';
-        $sql .= 'LEFT JOIN ' . $wpdb->term_taxonomy . ' X ON T.term_id = X.term_id ';
-        $sql .= 'WHERE X.taxonomy = \'post_tag\' ';
-        if ( $options['tag_list_unused_tags'] == 'off' ) {
-            $sql .= 'AND X.count > 0 ';
+        extract( shortcode_atts( array(
+            'letter' => null,
+            'toc'    => 'both'
+        ), $atts ) );
+        $args = array(
+            'orderby'      => 'name',
+            'order'        => 'ASC',
+#            'fields'       => 'ids',
+            'hide_empty'   => $options['tag_list_unused_tags'] == 'off',
+            'name__like'   => null,
+            'execlude'     => null,
+            'include'      => null,
+            'number'       => null,
+            'offset'       => 0,
+            'slug'         => null,
+            'hierarchical' => false,
+            'search'       => null,
+        );
+        if ( isset( $atts['letter'] ) && !empty( $atts['letter'] ) ) {
+            $args['name__like'] = $atts['letter'];
         }
-        $sql .= 'ORDER BY T.name ASC';
-        $tags = $wpdb->get_results( $sql );
-        #
+        if ( isset( $atts['toc'] ) && !empty( $atts['toc'] ) && preg_match( '/^(none|both|top|bottom)$/', $toc ) ) {
+            $options['tag_list_position'] = $atts['toc'];
+        }
+        $tags = get_tags( $args );
         $letter = '';
         $toc = '<ul class="tag-toc">';
         $content = '<ul class="tag-list">';
         $count = 0;
         foreach ($tags as $t) {
             $l = mb_substr ( $t->name, 0, 1 );
-            if (strtolower($l) != $letter) {
+            if ( mb_strtolower($l) != $letter) {
                 if ($letter != '') {
                     $content .= '</ul>'."\n".'</li>'."\n";
                 }
-                $letter = strtolower($l);
+                $letter = mb_strtolower($l);
                 $archor = 'tag-'.((preg_match('/[a-z0-9]/', $letter))? $letter:'alt-'.$count);
                 $toc .= sprintf('<li><a href="#%s">%s</a></li>', $archor, $letter);
                 $content .= sprintf('<li id="%s">'."\n".'<h4>%s</h4>'."\n".'<ul>'."\n", $archor, $letter);
@@ -126,6 +142,7 @@ class tag_list
             $content .= sprintf('<li><a href="%s">%s%s</a></li>'."\n", $link, $t->name, $counter_string);
             $count++;
         }
+        #
         $content .= '</ul>'."\n".'</li>'."\n".'</ul>'."\n";
         $toc .= '</ul>'."\n";
         if ( preg_match( '/^(top|both)$/', $options['tag_list_position'] ) ) {
@@ -143,7 +160,8 @@ class tag_list
     #
     # get_css()
     #
-    function get_css() {
+    function get_css()
+    {
         $options = tag_list::get_options();
         if ( $options['tag_list_default_css'] == 'on' ) {
             print '<style type="text/css" >';
@@ -155,7 +173,8 @@ class tag_list
     #
     # register_plugin_links()
     #
-    function register_plugin_links($links, $file) {
+    function register_plugin_links($links, $file)
+    {
         if ( preg_match( '/tag-list.php$/', $file ) ) {
             $links[] = '<a href="edit.php?page=tag-list-admin.php">' . __( 'Settings', 'tag_list' ) . '</a>';
         }
