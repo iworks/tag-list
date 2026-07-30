@@ -6,115 +6,133 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Tag list 1.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/tag-list\n"
-"POT-Creation-Date: 2010-03-16 21:19+0100\n"
+"Report-Msgid-Bugs-To: http://iworks.pl\n"
+"POT-Creation-Date: 2026-07-30 06:53:26+00:00\n"
 "PO-Revision-Date: 2010-04-08 20:34+0300\n"
 "Last-Translator: FatCow <zhr@tut.by>\n"
 "Language-Team: Marcin Pietrzak <marcin@iworks.pl>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tag-list-admin.php:23
-#: tag-list-admin.php:24
-#: tag-list-admin.php:90
-msgid "Tag list options"
+#: includes/iworks/class-iworks-tag-list-admin.php:38
+#: includes/iworks/class-iworks-tag-list-admin.php:39
+#: includes/iworks/class-iworks-tag-list-admin.php:106
+#, fuzzy
+msgid "Tag List Options"
 msgstr "Налады спісу тэгаў"
 
-#: tag-list-admin.php:64
+#: includes/iworks/class-iworks-tag-list-admin.php:81
 msgid "Warning"
 msgstr "Папярэджанне"
 
-#: tag-list-admin.php:66
-msgid "wp_head(); not found in your header.php file, this might mean this plugin will not work!"
-msgstr "wp_head(); не знойдзена ў вашым header.php file, гэта можа азначаць, гэта ўбудова не будзе працаваць!"
+#: includes/iworks/class-iworks-tag-list-admin.php:83
+msgid ""
+"wp_head(); not found in your header.php file, this might mean this plugin "
+"will not work!"
+msgstr ""
+"wp_head(); не знойдзена ў вашым header.php file, гэта можа азначаць, гэта "
+"ўбудова не будзе працаваць!"
 
-#: tag-list-admin.php:80
+#: includes/iworks/class-iworks-tag-list-admin.php:96
 msgid "Options saved."
 msgstr "Опцыі захаваны."
 
-#: tag-list-admin.php:99
+#: includes/iworks/class-iworks-tag-list-admin.php:107
+msgid ""
+"Configure how the tag list shortcode behaves on your site. Use the shortcode "
+"[tag-list] in your posts or pages to display the tag list."
+msgstr ""
+
+#: includes/iworks/class-iworks-tag-list-admin.php:119
 msgid "Use default CSS?"
 msgstr "Выкарыстоўваць стандартны CSS?"
 
-#: tag-list-admin.php:102
-#: tag-list-admin.php:122
-#: tag-list-admin.php:131
-#: tag-list-admin.php:140
+#: includes/iworks/class-iworks-tag-list-admin.php:127
+#: includes/iworks/class-iworks-tag-list-admin.php:177
+#: includes/iworks/class-iworks-tag-list-admin.php:196
+#: includes/iworks/class-iworks-tag-list-admin.php:215
 msgid "yes"
 msgstr "так"
 
-#: tag-list-admin.php:103
-#: tag-list-admin.php:123
+#: includes/iworks/class-iworks-tag-list-admin.php:133
+#: includes/iworks/class-iworks-tag-list-admin.php:183
 msgid "no"
 msgstr "не"
 
-#: tag-list-admin.php:108
+#: includes/iworks/class-iworks-tag-list-admin.php:138
 msgid "Where should the short list be placed?"
 msgstr "Дзе кароткі змяшчаецца спіс?"
 
-#: tag-list-admin.php:111
+#: includes/iworks/class-iworks-tag-list-admin.php:146
 msgid "on top and on bottom (default)"
 msgstr "зверху і знізу (па змаўчанні)"
 
-#: tag-list-admin.php:112
+#: includes/iworks/class-iworks-tag-list-admin.php:152
 msgid "only on top"
 msgstr "толькі зверху"
 
-#: tag-list-admin.php:113
+#: includes/iworks/class-iworks-tag-list-admin.php:158
 msgid "only on bottom"
 msgstr "толькі знізу"
 
-#: tag-list-admin.php:114
+#: includes/iworks/class-iworks-tag-list-admin.php:164
 msgid "hide"
 msgstr "схаваць"
 
-#: tag-list-admin.php:119
+#: includes/iworks/class-iworks-tag-list-admin.php:169
 msgid "Use extra div width ID?"
 msgstr "Выкарыстанне дадатковыя шырыні Div ID?"
 
-#: tag-list-admin.php:128
+#: includes/iworks/class-iworks-tag-list-admin.php:188
 msgid "Show unused tag to?"
 msgstr "Паказаць невыкарыстоўваныя тэгі?"
 
-#: tag-list-admin.php:132
-#: tag-list-admin.php:141
+#: includes/iworks/class-iworks-tag-list-admin.php:202
+#: includes/iworks/class-iworks-tag-list-admin.php:221
 msgid "no (default)"
 msgstr "не (па змаўчанні)"
 
-#: tag-list-admin.php:137
+#: includes/iworks/class-iworks-tag-list-admin.php:207
 msgid "Show number of use?"
 msgstr "Паказаць нумар выкарыстання?"
 
-#: tag-list-admin.php:148
+#: includes/iworks/class-iworks-tag-list-admin.php:228
 msgid "Save Changes"
 msgstr "Захаваць змены"
 
-#: tag-list-admin.php:150
-msgid "Donation"
-msgstr "Ахвяраванне"
-
-#: tag-list.php:182
+#: includes/iworks/class-iworks-tag-list-admin.php:247
 msgid "Settings"
 msgstr "Налады"
 
 #. Plugin Name of the plugin/theme
-msgid "Tag list"
+#, fuzzy
+msgid "Tag List"
 msgstr "Спіс тэгаў"
 
 #. Plugin URI of the plugin/theme
-msgid "http://iworks.pl/tag-list/"
-msgstr "http://iworks.pl/tag-list/"
+msgid "PLUGIN_URI"
+msgstr ""
 
 #. Description of the plugin/theme
-msgid "Display all used tags with or without TOC."
-msgstr "Паказаць усе выкарыстоўваныя тэгі ці без TOC."
+msgid "PLUGIN_TAGLINE"
+msgstr ""
 
 #. Author of the plugin/theme
 msgid "Marcin Pietrzak"
 msgstr "Marcin Pietrzak"
 
 #. Author URI of the plugin/theme
-msgid "http://iworks.pl"
+#, fuzzy
+msgid "http://iworks.pl/"
 msgstr "http://iworks.pl"
 
+#~ msgid "Donation"
+#~ msgstr "Ахвяраванне"
+
+#~ msgid "http://iworks.pl/tag-list/"
+#~ msgstr "http://iworks.pl/tag-list/"
+
+#~ msgid "Display all used tags with or without TOC."
+#~ msgstr "Паказаць усе выкарыстоўваныя тэгі ці без TOC."

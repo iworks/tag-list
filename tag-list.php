@@ -33,10 +33,17 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
  */
 if ( ! class_exists( 'iworks_tag_list' ) ) {
 	// Load the main plugin class from the includes directory
-	require_once __DIR__ . '/includes/iworks/class-tag-list.php';
+	require_once __DIR__ . '/includes/iworks/class-iworks-tag-list.php';
 }
 // Initialize the main plugin class
 $iworks_tag_list = new iworks_tag_list();
+
+if ( ! class_exists( 'iworks_tag_list_admin' ) ) {
+	// Load the main plugin class from the includes directory
+	require_once __DIR__ . '/includes/iworks/class-iworks-tag-list-admin.php';
+}
+// Initialize the main plugin class
+new iworks_tag_list_admin( $iworks_tag_list );
 
 /**
  * Register plugin activation and deactivation hooks

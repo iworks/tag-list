@@ -1,0 +1,28 @@
+@import 'settings';
+
+.tag-toc {
+	padding-bottom: var(--tag-list-spacing-xl);
+	li {
+		list-style: none;
+		float: left;
+		padding-right: var(--tag-list-spacing-md);
+	}
+}
+
+.tag-list {
+	clear: left;
+}
+
+.tag-list {
+	li {
+		list-style: none;
+	}
+
+	h4 {
+		font-weight: var(--tag-list-font-weight-bold);
+	}
+
+	small {
+		font-size: var(--tag-list-font-size-sm);
+	}
+}

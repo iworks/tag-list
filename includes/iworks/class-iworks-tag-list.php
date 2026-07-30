@@ -1,30 +1,47 @@
 <?php
 
-
+/**
+ * Tag List Plugin Class
+ *
+ * Handles the tag list functionality including shortcode registration,
+ * CSS output, and plugin links.
+ *
+ * @package Iworks_Tag_List
+ */
 class iworks_tag_list {
 
-	#
-	# init()
-	#
-	function __construct() {
-		add_shortcode( 'tag-list', array( 'tag_list', 'get_tag_list' ) );
-		add_action( 'wp_head', array( 'tag_list', 'get_css' ) );
-		add_filter( 'plugin_row_meta', array( 'tag_list', 'register_plugin_links' ), 10, 2 );
-		// load language file
-		$current_locale = get_locale();
-		if ( ! empty( $current_locale ) ) {
-			$mo_file = __DIR__ . '/lang/tag-list-' . $current_locale . '.mo';
-			if ( @file_exists( $mo_file ) && is_readable( $mo_file ) ) {
-				load_textdomain( 'tag_list', $mo_file );
-			}
+	/**
+	 * Constructor.
+	 *
+	 * Initializes the plugin by registering hooks and loading translations.
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		add_shortcode( 'tag-list', array( $this, 'get_tag_list' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'action_wp_enqueue_scripts_maybe_enqueue_css' ) );
+		/**
+		 * load github class
+		 */
+		$filename = __DIR__ . '/tag-list/class-iworks-tag-list-github.php';
+		if ( is_file( $filename ) ) {
+			include_once $filename;
+			new iworks_tag_list_github();
 		}
-	} # init()
+	}
 
 
-	#
-	# get_options()
-	#
-	function get_options() {
+	/**
+	 * Get plugin options.
+	 *
+	 * Retrieves plugin options from site options or regular options,
+	 * with defaults for missing values.
+	 *
+	 * @return array Plugin options array with keys: tag_list_position,
+	 *               tag_list_default_css, tag_list_extra_div,
+	 *               tag_list_unused_tags, tag_list_number_of_use
+	 */
+	public function get_options() {
 		if ( function_exists( 'get_site_option' ) ) {
 			$options = get_site_option( 'tag_list_params' );
 		} else {
@@ -46,15 +63,21 @@ class iworks_tag_list {
 			$options['tag_list_number_of_use'] = 'off';
 		}
 		return $options;
-	} # get_options()
+	}
 
-	#
-	# get_iworks_tag_list()
-	#
-	function get_tag_list( $atts ) {
+	/**
+	 * Generate tag list HTML.
+	 *
+	 * Creates an alphabetical list of tags with optional table of contents.
+	 *
+	 * @param array $atts Shortcode attributes. Optional keys:
+	 *                    - letter: Filter tags by starting letter
+	 *                    - toc: Table of contents position (none|both|top|bottom)
+	 * @return string HTML output of the tag list or WP_Error on failure
+	 */
+	public function get_tag_list( $atts ) {
 		global $wpdb;
-		#
-		$options = tag_list::get_options();
+		$options = $this->get_options();
 		extract(
 			shortcode_atts(
 				array(
@@ -124,27 +147,54 @@ class iworks_tag_list {
 			return '<div id="tag-list">' . $content . '</div>';
 		}
 		return $content;
-	}#get_iworks_tag_list()
+	}
 
-	#
-	# get_css()
-	#
-	function get_css() {
-		$options = tag_list::get_options();
+	/**
+	 * Register CSS stylesheet.
+	 *
+	 * Registers the plugin's CSS file with WordPress.
+     * 
+     * @since 2.0.0
+	 *
+	 * @return void
+	 */
+	public function action_wp_enqueue_scripts_maybe_enqueue_css() {
+		$options = $this->get_options();
 		if ( $options['tag_list_default_css'] == 'on' ) {
-			print '<style type="text/css" >';
-			include_once 'default.css';
-			print '</style>';
+            $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+            $file = plugin_dir_url( dirname( __FILE__, 2 ) ) . 'assets/styles/tag-list-frontend' . $min . '.css';
+			wp_register_style(
+				'iworks-tag-list',
+				$file,
+				array(),
+				'PLUGIN_VERSION.BUILDTIMESTAMP'
+			);
+			wp_enqueue_style( 'iworks-tag-list' );
 		}
-	} # get_css()
+	}
 
-	#
-	# register_plugin_links()
-	#
-	function register_plugin_links( $links, $file ) {
-		if ( preg_match( '/tag-list.php$/', $file ) ) {
-			$links[] = '<a href="edit.php?page=tag-list-admin.php">' . __( 'Settings', 'tag_list' ) . '</a>';
-		}
-		return $links;
-	}# register_plugin_links()
+	/**
+	 * Plugin activation hook.
+	*
+	 * Handles database installation and option initialization
+	 * when the plugin is activated.
+	*
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function register_activation_hook() {
+		do_action( 'iworks/tag-list/register_activation_hook' );
+	}
+
+	/**
+	 * Plugin deactivation hook.
+	 *
+	 * Handles cleanup tasks when the plugin is deactivated.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function register_deactivation_hook() {
+		do_action( 'iworks/tag-list/register_deactivation_hook' );
+	}
 }

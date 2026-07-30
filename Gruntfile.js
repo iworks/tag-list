@@ -72,19 +72,13 @@ module.exports = function(grunt) {
 
 	var conf = {
 		// Concatenate those JS files into a single file (target: [source, source, ...]).
-		js_files_concat: {
-			'assets/scripts/<%= pkg.name %>-frontend.js': [
-				'assets/scripts/src/frontend/*.js',
-			],
-			'assets/scripts/<%= pkg.name %>-admin.js': [
-				'assets/scripts/src/admin/*.js',
-			]
-		},
+		js_files_concat: { },
 
 		// SASS files to process. Resulting CSS files will be minified as well.
-		css_files_compile: {},
+		css_files_compile: {
+			'assets/styles/frontend/tag-list.css': ['assets/sass/frontend/tag-list.scss'],
+		},
 		css_files_concat: {
-			'assets/styles/admin.css': ['assets/styles/admin/*.css']
 		},
 
 		replace_patterns: [{

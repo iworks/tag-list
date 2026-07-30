@@ -1,110 +1,126 @@
-# Translation of the WordPress plugin Tag list 1.0 by Marcin Pietrzak.
-# Copyright (C) 2010 Marcin Pietrzak
-# This file is distributed under the same license as the Tag list package.
-# Marcin Pietrzak <marcin@iworks.pl>, 2010.
-#
-#, fuzzy
+# Copyright (C) 2026 Marcin Pietrzak
+# This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tag list 1.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/tag-list\n"
-"POT-Creation-Date: 2010-03-16 21:19+0100\n"
-"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
-"Language-Team: Marcin Pietrzak <marcin@iworks.pl>\n"
+"Project-Id-Version: 0.0.1\n"
+"Report-Msgid-Bugs-To: http://iworks.pl\n"
+"POT-Creation-Date: 2026-07-30 06:53:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
+"Language-Team: iWorks <support@iworks.pl>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.4\n"
 
-#: tag-list-admin.php:23 tag-list-admin.php:24 tag-list-admin.php:90
-msgid "Tag list options"
+#: includes/iworks/class-iworks-tag-list-admin.php:38
+#: includes/iworks/class-iworks-tag-list-admin.php:39
+#: includes/iworks/class-iworks-tag-list-admin.php:106
+msgid "Tag List Options"
 msgstr ""
 
-#: tag-list-admin.php:64
+#: includes/iworks/class-iworks-tag-list-admin.php:81
 msgid "Warning"
 msgstr ""
 
-#: tag-list-admin.php:66
+#: includes/iworks/class-iworks-tag-list-admin.php:83
 msgid ""
 "wp_head(); not found in your header.php file, this might mean this plugin "
 "will not work!"
 msgstr ""
 
-#: tag-list-admin.php:80
+#: includes/iworks/class-iworks-tag-list-admin.php:96
 msgid "Options saved."
 msgstr ""
 
-#: tag-list-admin.php:99
+#: includes/iworks/class-iworks-tag-list-admin.php:107
+msgid ""
+"Configure how the tag list shortcode behaves on your site. Use the "
+"shortcode [tag-list] in your posts or pages to display the tag list."
+msgstr ""
+
+#: includes/iworks/class-iworks-tag-list-admin.php:119
 msgid "Use default CSS?"
 msgstr ""
 
-#: tag-list-admin.php:102 tag-list-admin.php:122 tag-list-admin.php:131
-#: tag-list-admin.php:140
+#: includes/iworks/class-iworks-tag-list-admin.php:127
+#: includes/iworks/class-iworks-tag-list-admin.php:177
+#: includes/iworks/class-iworks-tag-list-admin.php:196
+#: includes/iworks/class-iworks-tag-list-admin.php:215
 msgid "yes"
 msgstr ""
 
-#: tag-list-admin.php:103 tag-list-admin.php:123
+#: includes/iworks/class-iworks-tag-list-admin.php:133
+#: includes/iworks/class-iworks-tag-list-admin.php:183
 msgid "no"
 msgstr ""
 
-#: tag-list-admin.php:108
+#: includes/iworks/class-iworks-tag-list-admin.php:138
 msgid "Where should the short list be placed?"
 msgstr ""
 
-#: tag-list-admin.php:111
+#: includes/iworks/class-iworks-tag-list-admin.php:146
 msgid "on top and on bottom (default)"
 msgstr ""
 
-#: tag-list-admin.php:112
+#: includes/iworks/class-iworks-tag-list-admin.php:152
 msgid "only on top"
 msgstr ""
 
-#: tag-list-admin.php:113
+#: includes/iworks/class-iworks-tag-list-admin.php:158
 msgid "only on bottom"
 msgstr ""
 
-#: tag-list-admin.php:114
+#: includes/iworks/class-iworks-tag-list-admin.php:164
 msgid "hide"
 msgstr ""
 
-#: tag-list-admin.php:119
+#: includes/iworks/class-iworks-tag-list-admin.php:169
 msgid "Use extra div width ID?"
 msgstr ""
 
-#: tag-list-admin.php:128
+#: includes/iworks/class-iworks-tag-list-admin.php:188
 msgid "Show unused tag to?"
 msgstr ""
 
-#: tag-list-admin.php:132 tag-list-admin.php:141
+#: includes/iworks/class-iworks-tag-list-admin.php:202
+#: includes/iworks/class-iworks-tag-list-admin.php:221
 msgid "no (default)"
 msgstr ""
 
-#: tag-list-admin.php:137
+#: includes/iworks/class-iworks-tag-list-admin.php:207
 msgid "Show number of use?"
 msgstr ""
 
-#: tag-list-admin.php:148
+#: includes/iworks/class-iworks-tag-list-admin.php:228
 msgid "Save Changes"
 msgstr ""
 
-#: tag-list-admin.php:150
-msgid "Donation"
-msgstr ""
-
-#: tag-list.php:182
+#: includes/iworks/class-iworks-tag-list-admin.php:247
 msgid "Settings"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Tag list"
+msgid "Tag List"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://iworks.pl/tag-list/"
+msgid "PLUGIN_URI"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Display all used tags with or without TOC."
+msgid "PLUGIN_TAGLINE"
 msgstr ""
 
 #. Author of the plugin/theme
@@ -112,5 +128,5 @@ msgid "Marcin Pietrzak"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://iworks.pl"
+msgid "http://iworks.pl/"
 msgstr ""

@@ -40,9 +40,9 @@ If you have created your own language pack, or have an update of an existing one
 
 == Change Log ==
 
-= 2.0 =
+= 2.0.0 (2026-07-30) =
 
-* IMPROVMENT: massive code refactoring: change custom query to get_tags function.
+* IMPROVMENT: massive code refactoring.
 
 = 1.1.1 =
 * Add a Belorussian translation made by [Marcis G.](http://pc.de)
