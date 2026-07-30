@@ -1,0 +1,150 @@
+<?php
+
+
+class iworks_tag_list {
+
+	#
+	# init()
+	#
+	function __construct() {
+		add_shortcode( 'tag-list', array( 'tag_list', 'get_tag_list' ) );
+		add_action( 'wp_head', array( 'tag_list', 'get_css' ) );
+		add_filter( 'plugin_row_meta', array( 'tag_list', 'register_plugin_links' ), 10, 2 );
+		// load language file
+		$current_locale = get_locale();
+		if ( ! empty( $current_locale ) ) {
+			$mo_file = __DIR__ . '/lang/tag-list-' . $current_locale . '.mo';
+			if ( @file_exists( $mo_file ) && is_readable( $mo_file ) ) {
+				load_textdomain( 'tag_list', $mo_file );
+			}
+		}
+	} # init()
+
+
+	#
+	# get_options()
+	#
+	function get_options() {
+		if ( function_exists( 'get_site_option' ) ) {
+			$options = get_site_option( 'tag_list_params' );
+		} else {
+			$options = get_option( 'tag_list_params' );
+		}
+		if ( ! isset( $options['tag_list_position'] ) ) {
+			$options['tag_list_position'] = 'both';
+		}
+		if ( ! isset( $options['tag_list_default_css'] ) ) {
+			$options['tag_list_default_css'] = 'on';
+		}
+		if ( ! isset( $options['tag_list_extra_div'] ) ) {
+			$options['tag_list_extra_div'] = 'on';
+		}
+		if ( ! isset( $options['tag_list_unused_tags'] ) ) {
+			$options['tag_list_unused_tags'] = 'off';
+		}
+		if ( ! isset( $options['tag_list_number_of_use'] ) ) {
+			$options['tag_list_number_of_use'] = 'off';
+		}
+		return $options;
+	} # get_options()
+
+	#
+	# get_iworks_tag_list()
+	#
+	function get_tag_list( $atts ) {
+		global $wpdb;
+		#
+		$options = tag_list::get_options();
+		extract(
+			shortcode_atts(
+				array(
+					'letter' => null,
+					'toc'    => 'both',
+				),
+				$atts
+			)
+		);
+		$args = array(
+			'orderby'        => 'name',
+			'order'          => 'ASC',
+			#            'fields'       => 'ids',
+				'hide_empty' => $options['tag_list_unused_tags'] == 'off',
+			'name__like'     => null,
+			'execlude'       => null,
+			'include'        => null,
+			'number'         => null,
+			'offset'         => 0,
+			'slug'           => null,
+			'hierarchical'   => false,
+			'search'         => null,
+		);
+		if ( isset( $atts['letter'] ) && ! empty( $atts['letter'] ) ) {
+			$args['name__like'] = $atts['letter'];
+		}
+		if ( isset( $atts['toc'] ) && ! empty( $atts['toc'] ) && preg_match( '/^(none|both|top|bottom)$/', $toc ) ) {
+			$options['tag_list_position'] = $atts['toc'];
+		}
+		$tags    = get_tags( $args );
+		$letter  = '';
+		$toc     = '<ul class="tag-toc">';
+		$content = '<ul class="tag-list">';
+		$count   = 0;
+		foreach ( $tags as $t ) {
+			$l = mb_substr( $t->name, 0, 1 );
+			if ( mb_strtolower( $l ) != $letter ) {
+				if ( $letter != '' ) {
+					$content .= '</ul>' . "\n" . '</li>' . "\n";
+				}
+				$letter   = mb_strtolower( $l );
+				$archor   = 'tag-' . ( ( preg_match( '/[a-z0-9]/', $letter ) ) ? $letter : 'alt-' . $count );
+				$toc     .= sprintf( '<li><a href="#%s">%s</a></li>', $archor, $letter );
+				$content .= sprintf( '<li id="%s">' . "\n" . '<h4>%s</h4>' . "\n" . '<ul>' . "\n", $archor, $letter );
+			}
+			$link = get_tag_link( $t->term_id );
+			if ( is_wp_error( $link ) ) {
+				return $link;
+			}
+			$counter_string = '';
+			if ( $options['tag_list_number_of_use'] == 'on' ) {
+				$counter_string = sprintf( ' <small>(%d)</small>', $t->count );
+			}
+			$content .= sprintf( '<li><a href="%s">%s%s</a></li>' . "\n", $link, $t->name, $counter_string );
+			++$count;
+		}
+		#
+		$content .= '</ul>' . "\n" . '</li>' . "\n" . '</ul>' . "\n";
+		$toc     .= '</ul>' . "\n";
+		if ( preg_match( '/^(top|both)$/', $options['tag_list_position'] ) ) {
+			$content = $toc . $content;
+		}
+		if ( preg_match( '/^(bottom|both)$/', $options['tag_list_position'] ) ) {
+			$content .= $toc;
+		}
+		if ( $options['tag_list_extra_div'] == 'on' ) {
+			return '<div id="tag-list">' . $content . '</div>';
+		}
+		return $content;
+	}#get_iworks_tag_list()
+
+	#
+	# get_css()
+	#
+	function get_css() {
+		$options = tag_list::get_options();
+		if ( $options['tag_list_default_css'] == 'on' ) {
+			print '<style type="text/css" >';
+			include_once 'default.css';
+			print '</style>';
+		}
+	} # get_css()
+
+	#
+	# register_plugin_links()
+	#
+	function register_plugin_links( $links, $file ) {
+		if ( preg_match( '/tag-list.php$/', $file ) ) {
+			$links[] = '<a href="edit.php?page=tag-list-admin.php">' . __( 'Settings', 'tag_list' ) . '</a>';
+		}
+		return $links;
+	}# register_plugin_links()
+}
