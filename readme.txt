@@ -42,7 +42,7 @@ If you have created your own language pack, or have an update of an existing one
 
 = 2.0.0 (2026-07-30) =
 
-* IMPROVMENT: massive code refactoring.
+* IMPROVEMENT: massive code refactoring.
 
 = 1.1.1 =
 * Add a Belorussian translation made by [Marcis G.](http://pc.de)
