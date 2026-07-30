@@ -3,7 +3,7 @@
     "title": "Tag List",
     "tagline": "Create clean, customizable tag lists instead of tag clouds.",
     "description": "Tag List lets you display non-hierarchical taxonomies as simple bulleted, numbered, or custom-style lists. It’s a flexible alternative to the standard tag cloud, making it easier to present tags in a cleaner, more readable format on your WordPress site.",
-    "version": "0.0.1",
+    "version": "2.0.0",
     "homepage": "http://iworks.pl/iw_plugin/tag-list/",
     "repository": {
         "type": "git",
@@ -12,6 +12,10 @@
     },
     "author": "iworks",
     "tags": [
+        "tags",
+        "tag cloud",
+        "tag list",
+        "seo"
     ],
     "contributors": [
         {
